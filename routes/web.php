@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
+use App\Http\Controllers\FoodController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +16,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/webxe', function () {
-    return view('webxe');
-});
+Route::resource('foods',FoodController::class);
+Route::post('/foods/search', [FoodController::class, 'postSearch'])->name('foods.search');
+
